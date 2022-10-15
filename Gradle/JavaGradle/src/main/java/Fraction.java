@@ -17,6 +17,16 @@ public class Fraction {
       numerator = denominator = 0;
    }
 
+   //SER321 3.3. Understanding Gradle (7.5 points)
+   public Fraction(int num, int den) {
+      this.numerator = num;
+      this.denominator = den;
+   }
+
+   public Fraction(int num) {
+      this.numerator = num;
+   }
+
    public void print() {
     System.out.print(numerator + "/" + denominator );
    }
@@ -41,16 +51,53 @@ public class Fraction {
       try {
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
-         Fraction frac = new Fraction();
 
-         // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
+         //Code Checking
+         //https://docs.oracle.com/javase/tutorial/essential/environment/cmdLineArgs.html
+         int firstinline;
+         int secondinline;
 
-         // print it
-         System.out.print("The fraction is: ");
-         frac.print();
-         System.out.println("");
+         System.out.println(args.length);
+         if(args.length == 0) {
+            try {
+               Fraction frac = new Fraction();
+               frac.setNumerator(1);
+               frac.setDenominator(3);
+               // print it
+               System.out.print("The fraction is: ");
+               frac.print();
+               System.out.println("");
+            }
+            catch (NumberFormatException e) {
+               System.err.println("Argument must be an integer");
+            }
+         } else if (args.length == 1) {
+            try {
+               firstinline = Integer.parseInt(args[0]);
+               Fraction frac = new Fraction(firstinline, 3);
+               // print it
+               System.out.print("The fraction is: ");
+               frac.print();
+               System.out.println("");
+            }
+            catch (NumberFormatException e) {
+               System.err.println("Argument must be an integer");
+            }
+         }
+         else if (args.length == 2) {
+            try {
+               firstinline = Integer.parseInt(args[0]);
+               secondinline = Integer.parseInt(args[1]);
+               Fraction frac = new Fraction(firstinline,secondinline);
+               // print it
+               System.out.print("The fraction is: ");
+               frac.print();
+               System.out.println("");
+            }
+            catch (NumberFormatException e) {
+               System.err.println("Argument must be an integer");
+            }
+         }
 
       }catch(Exception e) {
          e.printStackTrace();

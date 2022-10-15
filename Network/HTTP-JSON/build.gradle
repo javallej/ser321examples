@@ -16,6 +16,10 @@ dependencies{
 task API(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   main = 'API'
+  if ( project.hasProperty("argsarray") ) {
+
+	args Eval.me(argsarray)
+   }
   // default args
-  args 'kgary' // port 
+  //args 'javallej' // port 
 }

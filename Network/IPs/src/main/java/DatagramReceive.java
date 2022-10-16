@@ -18,7 +18,7 @@ class DatagramReceive {
   public static void main(String args[]) {
     try {
       if (args.length != 1) {
-        System.out.println("Expected Arguments: <port(int)>");
+        System.out.println("Expected Arguments: <port()");
       }
       // allocate receive buffer
       byte buffer[] = new byte[1024];
